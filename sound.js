@@ -179,6 +179,12 @@ Sound.setCategory = function(value, mixWithOthers = false) {
   }
 };
 
+Sound.getSystemOutputVolume = function() {
+  if (!IsAndroid && !IsWindows) {
+    return RNSound.getSystemOutputVolume();
+  }
+};
+
 Sound.MAIN_BUNDLE = RNSound.MainBundlePath;
 Sound.DOCUMENT = RNSound.NSDocumentDirectory;
 Sound.LIBRARY = RNSound.NSLibraryDirectory;

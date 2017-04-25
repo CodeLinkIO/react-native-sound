@@ -218,4 +218,11 @@ RCT_EXPORT_METHOD(getCurrentTime:(nonnull NSNumber*)key
   }
 }
 
+RCT_REMAP_METHOD(getSystemOutputVolume,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+    float volume = [[AVAudioSession sharedInstance] outputVolume];
+    resolve([NSNumber numberWithFloat:volume]);
+}
+
 @end
